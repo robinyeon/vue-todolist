@@ -42,6 +42,11 @@
         aria-describedby="inputGroup-sizing-default"
       />
     </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+    <p>
+      Already have an account? 👉
+      <router-link to="/">Login</router-link>
+    </p>
   </div>
 </template>
 

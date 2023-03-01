@@ -18,13 +18,9 @@
         />
       </div>
 
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-      </div>
-
       <button type="submit" class="btn btn-primary">Login</button>
       <p>
-        Don't have account? 👉
+        Don't have an account? 👉
         <router-link to="/register">Register</router-link>
       </p>
     </form>
