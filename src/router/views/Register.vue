@@ -1,51 +1,14 @@
 <template>
   <div>
-    <form>
-      <div class="row mb-3">
-        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-          <input
-            v-model="email"
-            type="email"
-            class="form-control"
-            id="inputEmail"
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <span class="invalidWarning" v-if="msg.email">{{ msg.email }}</span>
-      </div>
-
-      <div class="row mb-3">
-        <label for="inputPassword" class="col-sm-2 col-form-label"
-          >Password</label
-        >
-        <div class="col-sm-10">
-          <input type="password" class="form-control" id="inputPassword" />
-        </div>
-      </div>
-
-      <div class="row mb-3">
-        <label for="inputPasswordConfirm" class="col-sm-2 col-form-label"
-          >Password Confirm</label
-        >
-        <div class="col-sm-10">
-          <input
-            type="password"
-            class="form-control"
-            id="inputPasswordConfirm"
-          />
-        </div>
-      </div>
-
-      <div class="row mb-3">
-        <label for="inputUsername" class="col-sm-2 col-form-label"
-          >Username</label
-        >
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputUsername" />
-        </div>
-      </div>
+    <form @submit="submitRegisterForm">
+      <EmailInput :msg="msg" @getEmail="email = $event" />
+      <PasswordInput :msg="msg" @getPassword="password = $event" />
+      <PasswordConfirm
+        :msg="msg"
+        @getPasswordConfirm="passwordConfirm = $event"
+        :password="password"
+      />
+      <UsernameInput :msg="msg" @getUsername="username = $event" />
 
       <button type="submit" class="btn btn-primary">Register</button>
       <p>
@@ -57,15 +20,38 @@
 </template>
 
 <script>
+import EmailInput from "../../components/EmailInput.vue";
+import PasswordInput from "../../components/PasswordInput.vue";
+import PasswordConfirm from "../../components/PasswordConfirm.vue";
+import UsernameInput from "../../components/UsernameInput.vue";
+
 export default {
   name: "register",
   data() {
     return {
+      msg: [],
       email: "",
       password: "",
       passwordConfirm: "",
       username: "",
     };
+  },
+  components: {
+    EmailInput,
+    PasswordInput,
+    PasswordConfirm,
+    UsernameInput,
+  },
+  methods: {
+    submitRegisterForm(event) {
+      event.preventDefault();
+      console.log(
+        this.email,
+        this.password,
+        this.passwordConfirm,
+        this.username
+      );
+    },
   },
 };
 </script>

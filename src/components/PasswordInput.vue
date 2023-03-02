@@ -46,4 +46,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.invalidWarning {
+  color: rgb(223, 87, 87);
+}
+</style>
