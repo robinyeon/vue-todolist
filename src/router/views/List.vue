@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="dropdown">
+    <div class="dropdown mb-4">
       <button
         class="btn btn-secondary dropdown-toggle"
         type="button"
@@ -43,47 +43,7 @@
         aria-label="Text input with dropdown button"
       />
     </div>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <input
-          class="form-check-input me-1"
-          type="checkbox"
-          value=""
-          id="firstCheckboxStretched"
-        />
-        <label
-          class="form-check-label stretched-link"
-          for="firstCheckboxStretched"
-          >First task</label
-        >
-      </li>
-      <li class="list-group-item">
-        <input
-          class="form-check-input me-1"
-          type="checkbox"
-          value=""
-          id="secondCheckboxStretched"
-        />
-        <label
-          class="form-check-label stretched-link"
-          for="secondCheckboxStretched"
-          >Second task</label
-        >
-      </li>
-      <li class="list-group-item">
-        <input
-          class="form-check-input me-1"
-          type="checkbox"
-          value=""
-          id="thirdCheckboxStretched"
-        />
-        <label
-          class="form-check-label stretched-link"
-          for="thirdCheckboxStretched"
-          >Third task</label
-        >
-      </li>
-    </ul>
+    <ul class="list-group"></ul>
   </div>
 </template>
 

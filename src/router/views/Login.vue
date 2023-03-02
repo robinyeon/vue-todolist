@@ -1,13 +1,20 @@
 <template>
   <div>
     <form>
-      <div class="mb-3">
-        <label for="inputEmail" class="form-label">Email</label>
-        <input type="email" id="inputEmail" class="form-control" />
+      <div class="row mb-3">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="inputEmail" />
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="inputPassword" class="form-label">Password</label>
-        <input type="password" class="form-control" id="inputPassword" />
+
+      <div class="row mb-3">
+        <label for="inputPassword" class="col-sm-2 col-form-label"
+          >Password</label
+        >
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword" />
+        </div>
       </div>
 
       <button type="submit" class="btn btn-primary">Login</button>
