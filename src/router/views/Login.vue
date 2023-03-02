@@ -13,6 +13,7 @@
             required
           />
         </div>
+        <span class="invalidWarning" v-if="msg.email">{{ msg.email }}</span>
       </div>
 
       <div class="row mb-3">
@@ -28,6 +29,9 @@
             placeholder="Enter your password"
             required
           />
+          <span class="invalidWarning" v-if="msg.password">{{
+            msg.password
+          }}</span>
         </div>
       </div>
 
@@ -47,15 +51,43 @@ export default {
     return {
       email: "",
       password: "",
+      msg: [],
     };
+  },
+  watch: {
+    email(value) {
+      this.email = value;
+      this.validateEmail(value);
+    },
+    password(value) {
+      this.password = value;
+      this.validatePassword(value);
+    },
   },
   methods: {
     submitLoginForm(event) {
       event.preventDefault();
       console.log(this.email, this.password);
     },
+    validateEmail(value) {
+      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value))
+        this.msg["email"] = "";
+      else this.msg["email"] = "Invalid Email Address";
+    },
+    validatePassword(value) {
+      let lengthDifference = 8 - value.length;
+      if (value.length < 8)
+        this.msg[
+          "password"
+        ] = `Must be more than 8 characters! ${lengthDifference} characters left.`;
+      else this.msg["password"] = "";
+    },
   },
 };
 </script>
 
-<style></style>
+<style>
+.invalidWarning {
+  color: rgb(223, 87, 87);
+}
+</style>
